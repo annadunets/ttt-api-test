@@ -23,13 +23,13 @@ DROP TABLE IF EXISTS `Games`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Games` (
-  `GameID` int NOT NULL,
+  `GameID` int NOT NULL AUTO_INCREMENT,
   `UserID` int NOT NULL,
   `Status` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`GameID`),
   KEY `UserID` (`UserID`),
   CONSTRAINT `Games_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `Users` (`UserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,15 +49,15 @@ DROP TABLE IF EXISTS `Moves`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Moves` (
-  `MoveID` int NOT NULL,
+  `MoveID` int NOT NULL AUTO_INCREMENT,
   `GameID` int NOT NULL,
-  `Row_s` varchar(50) DEFAULT NULL,
-  `Column_s` varchar(50) DEFAULT NULL,
+  `Row_num` varchar(50) DEFAULT NULL,
+  `Column_num` varchar(50) DEFAULT NULL,
   `X_or_0` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`MoveID`),
   KEY `GameID` (`GameID`),
   CONSTRAINT `Moves_ibfk_1` FOREIGN KEY (`GameID`) REFERENCES `Games` (`GameID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=175 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,30 +70,6 @@ LOCK TABLES `Moves` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `Request_Logs`
---
-
-DROP TABLE IF EXISTS `Request_Logs`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Request_Logs` (
-  `RequestID` int NOT NULL,
-  `RequestBody` varchar(255) DEFAULT NULL,
-  `Result` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`RequestID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `Request_Logs`
---
-
-LOCK TABLES `Request_Logs` WRITE;
-/*!40000 ALTER TABLE `Request_Logs` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Request_Logs` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `Users`
 --
 
@@ -101,10 +77,10 @@ DROP TABLE IF EXISTS `Users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Users` (
-  `UserID` int NOT NULL,
+  `UserID` int NOT NULL AUTO_INCREMENT,
   `UserName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`UserID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,3 +100,5 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-03-09 16:24:21

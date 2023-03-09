@@ -38,7 +38,7 @@ class MovesTable{
         global $dbh;
         $sql = "INSERT INTO Moves (GameID, Row_num, Column_num, X_or_0) Values (?,?,?,?)";
         $stmt = $dbh->prepare($sql);
-        $stmt->execute($game_id, $row, $column, $x_or_0);
+        $stmt->execute([$game_id, $row, $column, $x_or_0]);
         return $dbh->lastInsertId();
     }
 
@@ -49,5 +49,6 @@ class MovesTable{
         $moves = $stmt->fetchAll();
         return $moves;
     }
+
 }
  
