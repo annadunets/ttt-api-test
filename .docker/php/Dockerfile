@@ -23,6 +23,7 @@ RUN docker-php-ext-install -j$(nproc) gd
 RUN echo "opcache.enable=1" > /usr/local/etc/php/conf.d/opcache.ini
 RUN printf "\n" | pecl install apcu mongodb
 RUN docker-php-ext-enable apcu mongodb
+RUN docker-php-ext-install pdo pdo_mysql
 
 RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && mv composer.phar /usr/local/bin/composer
 

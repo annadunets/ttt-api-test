@@ -1,2 +1,3 @@
 <?php
-  echo "I'm running :)";
+
+echo 'base html';
